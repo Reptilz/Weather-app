@@ -37,7 +37,7 @@ export default function Location() {
   };
   return (
     <>
-      <div className="location-box">
+      <div className="location-container">
         <div className="location">Liège, BE</div>
         <div className="date">{dateFormater(new Date())}</div>
       </div>

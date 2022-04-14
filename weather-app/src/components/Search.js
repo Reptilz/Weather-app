@@ -1,4 +1,5 @@
-import React from "react";
+import axios from "axios";
+import React, { useState } from "react";
 import Location from "./Location";
 
 //Informations de l'API
@@ -8,6 +9,20 @@ const api = {
 };
 
 export default function Search() {
+  const [query, setQuery] = useState("");
+  const [weather, setWeather] = useState({});
+
+  //fonction de recherche dans l'API
+  const search = (evt) => {
+    if (evt.key === "Enter") {
+      //si on appuie sur Enter dans l'input, alors on fait la requête axios
+      // avec les informations nécessaires dans l'url
+      axios
+        .get(`${api.url}weather?q=${query}&units=metric&APPID=${api.key}`)
+        .then((response) => response.json())
+        .then((result) => setWeather(result));
+    }
+  };
   return (
     <>
       <div className="search-container">
