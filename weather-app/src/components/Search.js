@@ -1,4 +1,3 @@
-import axios from "axios";
 import React, { useState } from "react";
 import Location from "./Location";
 
@@ -12,23 +11,32 @@ export default function Search() {
   const [query, setQuery] = useState("");
   const [weather, setWeather] = useState({});
 
-  //fonction de recherche dans l'API
+  //si on appuie sur Enter dans l'input, alors on fait un fetch
+  // avec les informations nécessaires dans l'url
   const search = (evt) => {
     if (evt.key === "Enter") {
-      //si on appuie sur Enter dans l'input, alors on fait la requête axios
-      // avec les informations nécessaires dans l'url
-      axios
-        .get(`${api.url}weather?q=${query}&units=metric&APPID=${api.key}`)
-        .then((response) => response.json())
-        .then((result) => setWeather(result));
+      fetch(`${api.url}weather?q=${query}&units=metric&APPID=${api.key}`)
+        .then((res) => res.json())
+        .then((result) => {
+          setWeather(result);
+          setQuery("");
+          console.log(weather);
+        });
     }
   };
   return (
     <>
       <div className="search-container">
-        <input type="text" className="search-bar" placeholder="Search..." />
+        <input
+          type="text"
+          className="search-bar"
+          placeholder="Search..."
+          onChange={(e) => setQuery(e.target.value)}
+          value={query}
+          onKeyPress={search}
+        />
       </div>
-      <Location />
+      <Location weather={weather} />
     </>
   );
 }
