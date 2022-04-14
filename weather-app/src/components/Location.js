@@ -1,6 +1,7 @@
 import React from "react";
+import Weather from "./Weather";
 
-export default function Card() {
+export default function Location() {
   //format de date
   const dateFormater = (d) => {
     let months = [
@@ -35,9 +36,12 @@ export default function Card() {
     return `${day} ${date} ${month} ${year} `;
   };
   return (
-    <div className="location-box">
-      <div className="location">Liège, BE</div>
-      <div className="date">{dateFormater(new Date())}</div>
-    </div>
+    <>
+      <div className="location-box">
+        <div className="location">Liège, BE</div>
+        <div className="date">{dateFormater(new Date())}</div>
+      </div>
+      <Weather />
+    </>
   );
 }
