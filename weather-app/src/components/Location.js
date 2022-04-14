@@ -37,14 +37,19 @@ export default function Location({ weather }) {
   };
   return (
     <>
-      <div className="location-container">
-        <div className="location">
-          {weather.name}
-          {weather.sys ? ", " + weather.sys.country : ""}
-        </div>
-        <div className="date">{dateFormater(new Date())}</div>
-      </div>
-      <Weather />
+      {typeof weather.main != "undefined" ? (
+        <>
+          <div className="location-container">
+            <div className="location">
+              {weather.name}, {weather.sys.country}
+            </div>
+            <div className="date">{dateFormater(new Date())}</div>
+          </div>
+          <Weather />
+        </>
+      ) : (
+        ""
+      )}
     </>
   );
 }
