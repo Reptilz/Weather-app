@@ -20,7 +20,7 @@ export default function Search() {
         .then((result) => {
           setWeather(result);
           setQuery("");
-          console.log(weather);
+          console.log(result);
         });
     }
   };

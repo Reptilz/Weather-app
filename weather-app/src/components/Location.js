@@ -1,7 +1,7 @@
 import React from "react";
 import Weather from "./Weather";
 
-export default function Location() {
+export default function Location({ weather }) {
   //format de date
   const dateFormater = (d) => {
     let months = [
@@ -38,7 +38,7 @@ export default function Location() {
   return (
     <>
       <div className="location-container">
-        <div className="location">Liège, BE</div>
+        <div className="location">{weather.name}</div>
         <div className="date">{dateFormater(new Date())}</div>
       </div>
       <Weather />
