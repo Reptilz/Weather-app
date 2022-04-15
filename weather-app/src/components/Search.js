@@ -26,16 +26,20 @@ export default function Search() {
   };
   return (
     <>
-      <div className="search-container">
+      <div class="search-box">
+        <button class="btn-search">
+          <i class="fas fa-search"></i>
+        </button>
         <input
           type="text"
-          className="search-bar"
+          class="input-search"
           placeholder="Search..."
           onChange={(e) => setQuery(e.target.value)}
           value={query}
           onKeyPress={search}
         />
       </div>
+
       <Location weather={weather} />
     </>
   );

@@ -1,5 +1,5 @@
 import React from "react";
-import Nextdays from "./Nextdays";
+//import Nextdays from "./Nextdays";
 
 export default function Weather({ weather }) {
   return (
@@ -8,7 +8,7 @@ export default function Weather({ weather }) {
         <div className="temp">{Math.round(weather.list[0].main.temp)}°c</div>
         <div className="weather">{weather.list[0].weather[0].main}</div>
       </div>
-      <Nextdays weather={weather} />
+      {/*<Nextdays weather={weather} /> */}
     </>
   );
 }
