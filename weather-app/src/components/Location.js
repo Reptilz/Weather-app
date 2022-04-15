@@ -40,11 +40,11 @@ export default function Location({ weather }) {
     //Si weather.main est différent de undefined === true alors affiche le template
     //sinon affiche une chaine de caractère vide
     <>
-      {typeof weather.main != "undefined" ? (
+      {typeof weather.list != "undefined" ? (
         <>
           <div className="location-container">
             <div className="location">
-              {weather.name}, {weather.sys.country}
+              {weather.city.name}, {weather.city.country}
             </div>
             <div className="date">{dateFormater(new Date())}</div>
           </div>

@@ -15,7 +15,7 @@ export default function Search() {
   // avec les informations nécessaires dans l'url
   const search = (evt) => {
     if (evt.key === "Enter") {
-      fetch(`${api.url}weather?q=${query}&units=metric&APPID=${api.key}`)
+      fetch(`${api.url}forecast?q=${query}&units=metric&APPID=${api.key}`)
         .then((res) => res.json())
         .then((result) => {
           setWeather(result);
