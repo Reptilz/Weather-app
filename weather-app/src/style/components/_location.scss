@@ -1,0 +1,14 @@
+.location-container {
+    margin-top: 30px;
+    color: #fff;
+    .location {
+        font-size: 3rem;
+        font-weight: bold;
+        text-shadow: 3px 4px 0px #0000004b;
+    }
+    .date {
+        font-style: italic;
+        margin-top: 3px;
+        font-size: 1.5rem;
+    }
+}

@@ -33,7 +33,7 @@ export default function Search() {
         <input
           type="text"
           class="input-search"
-          placeholder="Search..."
+          placeholder="Search.."
           onChange={(e) => setQuery(e.target.value)}
           value={query}
           onKeyPress={search}
