@@ -35,7 +35,10 @@ export default function Location({ weather }) {
 
     return `${day} ${date} ${month} ${year} `;
   };
+
   return (
+    //Si weather.main est différent de undefined === true alors affiche le template
+    //sinon affiche une chaine de caractère vide
     <>
       {typeof weather.main != "undefined" ? (
         <>
@@ -45,7 +48,7 @@ export default function Location({ weather }) {
             </div>
             <div className="date">{dateFormater(new Date())}</div>
           </div>
-          <Weather />
+          <Weather weather={weather} />
         </>
       ) : (
         ""
